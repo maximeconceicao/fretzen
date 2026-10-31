@@ -1,0 +1,34 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    color: #3c3f2e;
+    /* Fond assorti à la palette « Matcha minimal » : les bandes de letterbox
+       (format 4:3 sur écran large) deviennent un cadre intentionnel plutôt
+       qu'une barre sombre. Léger dégradé lin → vert sombre pour la profondeur. */
+    background: radial-gradient(circle at 50% 35%, #e8e6d5 0%, #cfccb6 55%, #9c9780 100%);
+}
+
+#app {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/*
+ * Le conteneur doit avoir une taille explicite : en mode Scale.FIT, Phaser
+ * mesure ce parent pour agrandir le canvas. Sans dimension, il se calait sur la
+ * taille du canvas (cercle vicieux) et le jeu restait figé à 1024×768.
+ * Phaser centre lui-même le canvas à l'intérieur (autoCenter: CENTER_BOTH).
+ */
+#game-container {
+    width: 100%;
+    height: 100%;
+    /* Même teinte que le fond du jeu : garantit un cadre cohérent lorsque ce
+       conteneur passe en plein écran (c'est lui qui remplit alors l'écran). */
+    background-color: #cfccb6;
+}
